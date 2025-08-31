@@ -1,7 +1,6 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: #f5f5f5;
 }
 
 .container {
@@ -11,8 +10,8 @@ body {
 
 .sidebar {
     width: 80px;
-    background: #222;
-    color: #fff;
+    background: var(--main-background);
+    color: var(--main-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,7 +35,7 @@ body {
 }
 
 .nav-item:hover {
-    background: #333;
+    background: var(--main-background);
 }
 
 .icon {
@@ -45,13 +44,11 @@ body {
 
 .label {
     font-size: 12px;
-    color: #bbb;
+    color: var(--main-color);
 }
 
 .main-content {
     flex: 1;
-    padding: 40px;
-    background: #fff;
     border-radius: 0 8px 8px 0;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    box-shadow: 0 0 10px var(--main-shadow-color);
 }
