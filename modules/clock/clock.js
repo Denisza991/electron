@@ -6,6 +6,7 @@ function updateClock() {
     const seconds = String(now.getSeconds()).padStart(2, '0')
     clock.textContent = `${hours}:${minutes}:${seconds}`
 }
+console.log(123)
 updateClock()
 window.clockIntervals = window.clockIntervals || []
 window.clockIntervals.push(setInterval(updateClock, 1000))

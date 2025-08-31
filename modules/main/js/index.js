@@ -25,16 +25,6 @@ const getModules = async () => {
     return await fs.readdir('./modules')
 }
 
-const clearModuleScripts = async () => {
-    // Clear any running intervals from previous modules
-    if (currentModule && window[currentModule + 'Intervals']) {
-        window[currentModule + 'Intervals'].forEach(id => clearInterval(id))
-        window[currentModule + 'Intervals'] = []
-    }
-    const mainContent = document.getElementById('main-content')
-    mainContent.innerHTML = ''
-}
-
 const buildNavList = async () => {
     const modules = await getModules()
     const navList = document.getElementById('nav-list')
@@ -45,7 +35,8 @@ const buildNavList = async () => {
         li.classList.add('nav-item')
         li.innerHTML = template(icon, moduleName.charAt(0).toUpperCase() + moduleName.slice(1))
         li.addEventListener('click', async () => {
-            await clearModuleScripts()
+            if (currentModule == moduleName) return
+            // await utils.clearModuleScripts(moduleName)
             await loadModuleTheme(moduleName)
             await loadModuleCSS(moduleName)
             await loadModuleHTML(moduleName)
