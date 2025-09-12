@@ -1,0 +1,71 @@
+{
+  "log": {
+    "loglevel": "info"
+  },
+  "inbounds": [
+    {
+      "port": 1080,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "147.45.249.209",
+            "port": 32653,
+            "users": [
+              {
+                "id": "9c96c7c9-635b-4052-af0b-f5b151ee91c6",
+                "flow": "xtls-rprx-vision",
+                "encryption": "none"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "yahoo.com",
+          "fingerprint": "firefox",
+          "publicKey": "KZkb7ViBlEhKyJmmmSyaCcvd1QE4iGIHROWo6Ljh8Fo",
+          "shortId": "d52e2202",
+          "spiderX": "/"
+        }
+      },
+      "tag": "test"
+    },
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "outboundTag": "test",
+        "domain": [
+          "geosite:google",
+          "geosite:youtube",
+          "2ip.ru"
+        ]
+      }
+    ]
+  }
+}

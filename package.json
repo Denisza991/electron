@@ -1,12 +1,27 @@
 {
+  "name": "electron",
+  "version": "1.0.0",
   "dependencies": {
-    "electron": "^37.4.0"
   },
-  "main": "main.js",
+  "main": "app/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "electron",
+    "productName": "electron",
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    }
   },
   "devDependencies": {
+    "electron": "^37.4.0",
+    "electron-builder": "^26.0.12",
     "electron-reload": "^2.0.0-alpha.1"
   }
 }

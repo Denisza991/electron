@@ -1,9 +1,0 @@
-.notes-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    font-size: 48px;
-    color: #222;
-    font-family: 'Courier New', Courier, monospace;
-}
